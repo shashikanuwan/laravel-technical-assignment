@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Requests\TodoList;
+namespace App\Http\Requests\Task;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteTodoListRequest extends FormRequest
+class DestroyTaskRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('destroy', $this->route('todo_list'));
+        return $this->user()->can('destroy', $this->route('task'));
     }
 
     public function rules()

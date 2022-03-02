@@ -4,7 +4,7 @@ namespace App\Http\Requests\TodoList;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteTodoListRequest extends FormRequest
+class DestroyTodoListRequest extends FormRequest
 {
     public function authorize()
     {

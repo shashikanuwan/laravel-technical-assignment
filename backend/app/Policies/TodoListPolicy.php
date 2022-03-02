@@ -15,17 +15,12 @@ class TodoListPolicy
         return $this->todomManage($user, $todo_list);
     }
 
-    public function store(User $user, TodoList $todo_list): bool
-    {
-        return $this->todomManage($user, $todo_list);
-    }
-
     public function update(User $user, TodoList $todo_list): bool
     {
         return $this->todomManage($user, $todo_list);
     }
 
-    public function delete(User $user, TodoList $todo_list): bool
+    public function destroy(User $user, TodoList $todo_list): bool
     {
         return $this->todomManage($user, $todo_list);
     }

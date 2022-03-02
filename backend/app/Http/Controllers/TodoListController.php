@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TodoList\DeleteTodoListRequest;
+use App\Http\Requests\TodoList\DestroyTodoListRequest;
 use App\Http\Requests\TodoList\ShowTodoListRequest;
 use App\Http\Requests\TodoList\StoreTodoListRequest;
 use App\Http\Requests\TodoList\UpdateTodoListRequest;
@@ -39,7 +39,7 @@ class TodoListController extends Controller
         return new TodoListResource($todo_list);
     }
 
-    public function destroy(DeleteTodoListRequest $request, TodoList $todo_list)
+    public function destroy(DestroyTodoListRequest $request, TodoList $todo_list)
     {
         $todo_list->delete();
 
