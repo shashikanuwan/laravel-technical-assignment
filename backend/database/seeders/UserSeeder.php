@@ -9,7 +9,7 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        collect(range(1, 10))->each(function ($id) {
+        collect(range(1, 2))->each(function ($id) {
             User::factory()->create(['email' => "user_{$id}@test.lk"]);
         });
     }
