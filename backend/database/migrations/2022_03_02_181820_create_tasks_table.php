@@ -12,8 +12,9 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('status')->default(Task::NOT_STARTED);
-            $table->string('description')->nullable();
+            $table->string('status')->default(Task::PENDING);
+            $table->text('description')->nullable();
+            $table->dateTime('due_date');
             $table->foreignId('todo_list_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

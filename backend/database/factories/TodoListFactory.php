@@ -11,7 +11,7 @@ class TodoListFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(),
-            'user_id' => User::factory(),
+            'user_id' => User::query()->inRandomOrder()->first()->id,
         ];
     }
 }

@@ -9,9 +9,8 @@ class Task extends Model
 {
     use HasFactory;
 
-    public const STARTED = 'started';
     public const PENDING = 'pending';
-    public const NOT_STARTED = 'not_started';
+    public const STARTED = 'started';
     public const COMPLETED = 'completed';
 
     protected $guarded = [];

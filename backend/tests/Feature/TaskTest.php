@@ -22,7 +22,8 @@ class TaskTest extends TestCase
     public function test_store_a_tasks_for_a_todo_list()
     {
         $this->postJson(route('todo-list.task.store', $this->list->id), [
-            'title' => $this->task->title
+            'title' => $this->task->title,
+            'due_date' => now(),
         ])
             ->assertCreated();
 
@@ -30,15 +31,6 @@ class TaskTest extends TestCase
             'title' => $this->task->title,
             'todo_list_id' => $this->list->id,
         ]);
-    }
-
-    public function test_while_storing_task_title_field_is_required()
-    {
-        $this->withExceptionHandling();
-
-        $this->postJson(route('todo-list.task.store', $this->list))
-            ->assertUnprocessable()
-            ->assertJsonValidationErrors(['title']);
     }
 
     public function test_fetch_all_tasks_of_a_todo_list()
@@ -53,19 +45,13 @@ class TaskTest extends TestCase
 
     public function test_update_a_tasks_for_a_todo_list()
     {
-        $this->patchJson(route('task.update', $this->task->id), ['title' => 'updated title'])
+        $this->patchJson(route('task.update', $this->task->id), [
+            'title' => 'updated title',
+            'due_date' => now()
+        ])
             ->assertOk();
 
         $this->assertDatabaseHas('tasks', ['title' => 'updated title']);
-    }
-
-    public function test_while_updating_task_title_field_is_required()
-    {
-        $this->withExceptionHandling();
-
-        $this->patchJson(route('task.update', $this->task))
-            ->assertUnprocessable()
-            ->assertJsonValidationErrors(['title']);
     }
 
     public function test_delete_a_tasks_for_a_todo_list()
