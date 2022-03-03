@@ -37,7 +37,7 @@ class LoginTest extends TestCase
 
         $this->postJson(route('user.login'), [
             'email' => $user->email,
-            'password' => 'random'
+            'password' => '12345678'
         ])
             ->assertUnauthorized();
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Task\DestroyTaskRequest;
+use App\Http\Requests\Task\FetchTaskRequest;
 use App\Http\Requests\Task\StoreTaskRequest;
 use App\Http\Requests\Task\UpdateTaskRequest;
 use App\Http\Resources\TaskResource;
@@ -12,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
 {
-    public function index(TodoList $todo_list)
+    public function index(FetchTaskRequest $request, TodoList $todo_list)
     {
         $tasks = $todo_list->tasks;
 

@@ -23,7 +23,7 @@ class TaskTest extends TestCase
     {
         $this->postJson(route('todo-list.task.store', $this->list->id), [
             'title' => $this->task->title,
-            'due_date' => now(),
+            'due_date' => now()->format('Y-m-d'),
         ])
             ->assertCreated();
 
@@ -47,7 +47,7 @@ class TaskTest extends TestCase
     {
         $this->patchJson(route('task.update', $this->task->id), [
             'title' => 'updated title',
-            'due_date' => now()
+            'due_date' => now()->format('Y-m-d'),
         ])
             ->assertOk();
 

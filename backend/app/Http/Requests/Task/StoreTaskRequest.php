@@ -17,7 +17,7 @@ class StoreTaskRequest extends FormRequest
             'title' => 'required',
             'status' => 'sometimes',
             'description' => 'sometimes',
-            'due_date' => 'required',
+            'due_date' => 'required|date_format:Y-m-d|after:yesterday',
         ];
     }
 }
