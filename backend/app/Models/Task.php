@@ -11,6 +11,7 @@ class Task extends Model
     use HasFactory;
 
     public const PENDING = 'pending';
+    public const REMINDED = 'reminded';
     public const STARTED = 'started';
     public const COMPLETED = 'completed';
 
@@ -29,6 +30,6 @@ class Task extends Model
     public function scopePending($query)
     {
         return $query->where('status', Task::PENDING)
-            ->where('due_date', '<', Carbon::now()->addMinutes(61)->toDateTimeString());
+            ->where('due_date', '<', Carbon::now()->addMinutes(60)->toDateTimeString());
     }
 }

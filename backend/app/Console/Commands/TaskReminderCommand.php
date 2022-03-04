@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 
 class TaskReminderCommand extends Command
 {
-    protected $signature = 'task_reminder:send';
+    protected $signature = 'reminder:send';
 
     protected $description = 'Send task reminder emails to users';
 
@@ -23,9 +23,6 @@ class TaskReminderCommand extends Command
             ->pending()
             ->get();
 
-        foreach ($tasks as $task) {
-            dispatch(new TaskReminderJob($task));
-            $task->update(['status' => Task::STARTED]);
-        }
+        TaskReminderJob::dispatch($tasks);
     }
 }

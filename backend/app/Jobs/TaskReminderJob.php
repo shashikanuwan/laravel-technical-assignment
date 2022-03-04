@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Task;
 use App\Notifications\TaskReminderNotification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -14,15 +15,18 @@ class TaskReminderJob implements ShouldQueue
 {
     use  Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $task;
+    private $tasks;
 
-    public function __construct($task)
+    public function __construct($tasks)
     {
-        $this->task = $task;
+        $this->tasks = $tasks;
     }
 
     public function handle()
     {
-        $this->task->todo_list->user->notify(new TaskReminderNotification($this->task));
+        foreach ($this->tasks as $task) {
+            $task->todo_list->user->notify(new TaskReminderNotification($task));
+            $task->update(['status' => Task::REMINDED]);
+        }
     }
 }

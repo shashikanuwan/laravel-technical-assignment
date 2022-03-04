@@ -10,7 +10,7 @@ class TodoListSeeder extends Seeder
 {
     public function run()
     {
-        TodoList::factory(4)
+        TodoList::factory(2)
             ->has(Task::factory()->count(3))
             ->create();
     }
