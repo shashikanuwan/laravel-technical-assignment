@@ -30,6 +30,12 @@ class Task extends Model
     public function scopePending($query)
     {
         return $query->where('status', Task::PENDING)
-            ->where('due_date', '<', Carbon::now()->addMinutes(60)->toDateTimeString());
+            ->where('due_date', '<=', Carbon::now()->addMinutes(60)->toDateTimeString());
+    }
+
+    public function scopeStarted($query)
+    {
+        return $query->where('status', Task::REMINDED)
+            ->where('due_date', '<=', Carbon::now()->toDateTimeString());
     }
 }
