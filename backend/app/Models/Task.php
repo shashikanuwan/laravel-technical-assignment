@@ -17,16 +17,18 @@ class Task extends Model
 
     protected $guarded = [];
 
-    public function todo_list()
-    {
-        return $this->belongsTo(TodoList::class);
-    }
-
     public function getDueDateAttribute($value)
     {
         return Carbon::parse($value)->format('M d, Y h:m a');
     }
 
+    //relationships
+    public function todo_list()
+    {
+        return $this->belongsTo(TodoList::class);
+    }
+
+    //scopes
     public function scopePending($query)
     {
         return $query->where('status', Task::PENDING)
@@ -37,5 +39,13 @@ class Task extends Model
     {
         return $query->where('status', Task::REMINDED)
             ->where('due_date', '<=', Carbon::now()->toDateTimeString());
+    }
+
+    //actions
+    public function markAsCompleted()
+    {
+        $this->completed_at = now();
+        $this->status = $this::COMPLETED;
+        $this->save();
     }
 }
