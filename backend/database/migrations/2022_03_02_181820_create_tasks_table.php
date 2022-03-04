@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('status')->default(Task::PENDING);
             $table->text('description')->nullable();
             $table->dateTime('due_date');
+            $table->dateTime('completed_at')->nullable();
             $table->foreignId('todo_list_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
