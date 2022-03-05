@@ -36,7 +36,11 @@ This To-Do App is Restfull api
 
 ## Test
 
+Run test
+
     php artisan test
+
+Or use the postman collection provided
     
 ## Security Vulnerabilities
 
