@@ -17,6 +17,7 @@ Then install a compiler
 Then create and configure .env
 
     cp .env.example .env
+    
     php artisan key:generate
 
 Then running migrations
