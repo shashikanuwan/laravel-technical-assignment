@@ -22,7 +22,8 @@ Then create and configure .env
 
     php artisan key:generate
 
-   Then add MAIL credentials
+   Then add MAIL credentials in .env
+   
 
 Then running migrations
 
