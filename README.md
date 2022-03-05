@@ -12,7 +12,7 @@ First clone this repository
 
 Then install a compiler
 
-    php artisan composer install
+    composer install
     
 Then create and configure .env
 
