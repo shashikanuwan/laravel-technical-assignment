@@ -19,7 +19,7 @@ class Task extends Model
 
     public function getDueDateAttribute($value)
     {
-        return Carbon::parse($value)->format('M d, Y h:m a');
+        return Carbon::parse($value)->format('M d, Y h:i:s A');
     }
 
     //relationships

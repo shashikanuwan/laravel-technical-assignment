@@ -14,7 +14,7 @@ class TaskResource extends JsonResource
             'description' => $this->description,
             'status' => $this->status,
             'due_date' => $this->due_date,
-            'created_at' => $this->created_at->diffForHumans(),
+            'completed_at' => $this->completed_at,
 
         ];
     }

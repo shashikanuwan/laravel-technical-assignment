@@ -20,4 +20,12 @@ class TodoList extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getTask()
+    {
+        return Task::query()
+            ->orderBy('due_date', 'ASC')
+            ->whereNotIn('status', ['completed'])
+            ->get();
+    }
 }

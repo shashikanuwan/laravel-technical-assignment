@@ -41,10 +41,6 @@ function Login() {
                 </div>
             </form>
         </div>
-        {/* <Link to="/project" id="projectComponent" style={{display:"none"}}></Link>
-        <Switch>
-        <Route path={"/project"} component={Project} />
-        </Switch> */}
     </BrowserRouter>
     );
 }

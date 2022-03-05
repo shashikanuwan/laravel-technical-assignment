@@ -15,7 +15,7 @@ class TaskController extends Controller
 {
     public function index(FetchTaskRequest $request, TodoList $todo_list)
     {
-        $tasks = $todo_list->tasks;
+        $tasks = $todo_list->getTask();
 
         return TaskResource::collection($tasks);
     }

@@ -16,7 +16,7 @@ class UpdateTaskRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'sometimes',
-            'due_date' => 'required|date_format:Y-m-d|after:yesterday',
+            'due_date' => 'required|after:yesterday',
         ];
     }
 }
