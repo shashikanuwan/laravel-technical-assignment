@@ -18,9 +18,11 @@ Then create and configure .env
 
     cp .env.example .env
     
-
+ #Then create app key
 
     php artisan key:generate
+
+ #Then add MAIL credentials
 
 Then running migrations
 
