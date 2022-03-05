@@ -277,7 +277,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\" : \"tak 1\",\r\n    \"description\" : \"tak 1 description\",\r\n    \"due_date\" : \"2022-03-10\" \r\n}"
+					"raw": "{\r\n    \"title\" : \"tak 1\",\r\n    \"description\" : \"tak 1 description\",\r\n    \"due_date\" : \"2022-03-05 13:30:00\" \r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8000/api/todo-list/1/task",
@@ -450,7 +450,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "1|r3Lhs2bef944Y4eV51YytDzqE7qxWAIHnsVtgbto",
+				"value": "1|Z0mslyqNBReGOevloR0fCoBTT3EudbmcymhaZufi",
 				"type": "string"
 			}
 		]

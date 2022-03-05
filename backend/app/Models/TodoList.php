@@ -25,7 +25,6 @@ class TodoList extends Model
     {
         return Task::query()
             ->orderBy('due_date', 'ASC')
-            ->whereNotIn('status', ['completed'])
             ->get();
     }
 }
