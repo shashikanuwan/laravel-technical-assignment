@@ -8,7 +8,7 @@ function Login() {
     const [loginInput, setLogin] = useState({
         email: '',
         password: '',
-        error_list: [],
+        errors: [],
     });
 
     const handleInput = (e) => {
@@ -28,14 +28,11 @@ function Login() {
             axios.post(`/api/login`, data).then(res => {
 
                 if (res.data.status === 200) {
-                    swal("Success!", res.data.message, "success");
-                    setLogin({
-                        error_list: [],
-                    });
-                    //  history.push('/dashboard');
+                    localStorage.setItem('token', res.data.token)
+                    History.push('/dashboard');
                 }
-                else if (res.data.status === 422) {
-                    setLogin({ ...loginInput, error_list: res.data.validate_err });
+                else {
+                    setLogin({ ...loginInput, errors: res.errors });
                 }
             });
         });
@@ -48,9 +45,9 @@ function Login() {
                     <div className="col-md-6">
                         <div className="card">
                             <div className="card-header">
-                                <h4>Add Students
-                                    <a href="/" className="btn btn-danger btn-sm float-end"> BACK</a>
-                                </h4>
+                                <div className="card-header">
+                                    <h4>Login</h4>
+                                </div>
                             </div>
                             <div className="card-body">
 
@@ -58,13 +55,13 @@ function Login() {
                                     <div className="form-group mb-3">
                                         <label>Email</label>
                                         <input type="text" name="email" onChange={handleInput} value={loginInput.email} className="form-control" />
-                                        <span className="text-danger">{loginInput.error_list.email}</span>
+                                        <span className="text-danger">{loginInput.errors.email}</span>
                                     </div>
 
                                     <div className="form-group mb-3">
                                         <label>Password</label>
                                         <input type="text" name="password" onChange={handleInput} value={loginInput.password} className="form-control" />
-                                        <span className="text-danger">{loginInput.error_list.password}</span>
+                                        <span className="text-danger">{loginInput.errors.password}</span>
                                     </div>
 
                                     <div className="form-group mb-3">

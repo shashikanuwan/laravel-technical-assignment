@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 
 function Register() {
 
-    // const history = useHistory();
+    // const History = useHistory();
     const [registerInput, setRegister] = useState({
         first_name: '',
         last_name: '',
@@ -12,7 +12,7 @@ function Register() {
         phone_number: '',
         password: '',
         password_confirmation: '',
-        error_list: [],
+        errors: [],
     });
 
     const handleInput = (e) => {
@@ -41,12 +41,12 @@ function Register() {
                         name: '',
                         email: '',
                         phone_number: '',
-                        error_list: [],
+                        errors: [],
                     });
-                    //  history.push('/Login');
+                      History.push('/login');
                 }
-                else if (res.data.status === 422) {
-                    setRegister({ ...registerInput, error_list: res.data.validate_err });
+                else {
+                    setRegister({ ...registerInput, errors: res.errors });
                 }
             });
         });
@@ -59,9 +59,7 @@ function Register() {
                     <div className="col-md-6">
                         <div className="card">
                             <div className="card-header">
-                                <h4>Add Students
-                                    <a href="/" className="btn btn-danger btn-sm float-end"> BACK</a>
-                                </h4>
+                                <h4>Register</h4>
                             </div>
                             <div className="card-body">
 
@@ -69,32 +67,32 @@ function Register() {
                                     <div className="form-group mb-3">
                                         <label>First name</label>
                                         <input type="text" name="first_name" onChange={handleInput} value={registerInput.first_name} className="form-control" />
-                                        <span className="text-danger">{registerInput.error_list.first_name}</span>
+                                        <span className="text-danger">{registerInput.errors.first_name}</span>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Last Name</label>
                                         <input type="text" name="last_name" onChange={handleInput} value={registerInput.last_name} className="form-control" />
-                                        <span className="text-danger">{registerInput.error_list.last_name}</span>
+                                        <span className="text-danger">{registerInput.errors.last_name}</span>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Email</label>
                                         <input type="text" name="email" onChange={handleInput} value={registerInput.email} className="form-control" />
-                                        <span className="text-danger">{registerInput.error_list.email}</span>
+                                        <span className="text-danger">{registerInput.errors.email}</span>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>phone_number</label>
                                         <input type="text" name="phone_number" onChange={handleInput} value={registerInput.phone_number_number} className="form-control" />
-                                        <span className="text-danger">{registerInput.error_list.phone_number}</span>
+                                        <span className="text-danger">{registerInput.errors.phone_number}</span>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Password</label>
                                         <input type="password" name="password" onChange={handleInput} value={registerInput.password} className="form-control" />
-                                        <span className="text-danger">{registerInput.error_list.password}</span>
+                                        <span className="text-danger">{registerInput.errors.password}</span>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label>Confirm Password</label>
                                         <input type="password" name="password_confirmation" onChange={handleInput} value={registerInput.password_confirmation} className="form-control" />
-                                        <span className="text-danger">{registerInput.error_list.password_confirmation}</span>
+                                        <span className="text-danger">{registerInput.errors.password_confirmation}</span>
                                     </div>
                                     <div className="form-group mb-3">
                                         <button type="submit" className="btn btn-primary">Register Now</button>

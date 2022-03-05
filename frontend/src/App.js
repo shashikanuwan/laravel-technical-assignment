@@ -6,6 +6,7 @@ import Login from "./component/auth/Login";
 import Register from "./component/auth/Register";
 import Navbar from "./layouts/Navbar";
 import Home from "./component/Home";
+import Dashboard from "./component/dashboard/Dashboard";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </div>
