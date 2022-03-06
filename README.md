@@ -24,6 +24,12 @@ Then create and configure .env
 
    Then add MAIL credentials in .env
    
+   Add the following credinctional to the .env file to perform a task backup for Google drive
+   
+    GOOGLE_CLIENT_ID=
+    GOOGLE_CLIENT_SECRET=
+    GOOGLE_REDIRECT_URL=http://localhost:8000/google-drive/callback
+   
 
 Then running migrations
 
