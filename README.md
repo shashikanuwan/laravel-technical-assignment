@@ -36,6 +36,14 @@ or
 Then start the server
 
     php artisan serve
+    
+Then, Run these commands to automatically send an email reminder and update task status.
+
+    php artisan queue:work
+    
+and
+
+    php artisan schedule:work
 
 ## Api
 
