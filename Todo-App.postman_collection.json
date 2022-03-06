@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a7972097-824c-47a3-b9b4-eb3fb23a9da5",
+		"_postman_id": "e81194d5-1ea4-4718-803e-04ad0aefe4a4",
 		"name": "Todo App",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -205,7 +205,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\" : \"update todo\"\r\n}"
+					"raw": "{\r\n    \"name\" : \"update todo 1\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8000/api/todo-list/1",
@@ -277,7 +277,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\" : \"tak 1\",\r\n    \"description\" : \"tak 1 description\",\r\n    \"due_date\" : \"2022-03-05 13:30:00\" \r\n}"
+					"raw": "{\r\n    \"title\" : \"tak 1\",\r\n    \"description\" : \"tak 1 description\",\r\n    \"due_date\" : \"2022-03-05 07:30:00\" \r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8000/api/todo-list/1/task",
@@ -354,7 +354,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\" : \"title update\",\r\n    \"description\" : \"description update\",\r\n    \"due_date\" : \"2022-03-10\"\r\n}"
+					"raw": "{\r\n    \"title\" : \"title update\",\r\n    \"description\" : \"description update\",\r\n    \"due_date\" : \"2022-03-05 09:00:00\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8000/api/task/1",
@@ -443,6 +443,82 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Connect Google Drive",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/web-service/connect/google-drive",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"web-service",
+						"connect",
+						"google-drive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store In Drive",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/web-service/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"web-service",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -450,7 +526,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "1|Z0mslyqNBReGOevloR0fCoBTT3EudbmcymhaZufi",
+				"value": "1|qCNxG3ynOyqqhF97VJo4UWopIeVL7r2uylmZ4j0J",
 				"type": "string"
 			}
 		]
