@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\TaskCompletedController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoListController;
+use App\Http\Controllers\WebServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -16,6 +17,15 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::patch('/task-completed/{task}', TaskCompletedController::class)
         ->name('task.completed');
+
+    Route::get('/web-service/connect/{name}', [WebServiceController::class, 'connect'])
+        ->name('web-service.connect');
+
+    Route::post('/web-service/callback', [WebServiceController::class, 'callback'])
+        ->name('web-service.callback');
+
+    Route::post('/web-service/{web_service}', [WebServiceController::class, 'store'])
+        ->name('web-service.store');
 });
 
 Route::post('/register', RegisterController::class)

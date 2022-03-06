@@ -24,6 +24,7 @@ class TodoList extends Model
     public function getTask()
     {
         return Task::query()
+            ->where('todo_list_id', $this->id)
             ->orderBy('due_date', 'ASC')
             ->get();
     }

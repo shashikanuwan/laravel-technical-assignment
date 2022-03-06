@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->dateTime('due_date');
             $table->dateTime('completed_at')->nullable();
-            $table->foreignId('todo_list_id')->constrained()->onDelete('cascade');
+            $table->foreignId('todo_list_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

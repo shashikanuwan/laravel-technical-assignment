@@ -8,9 +8,10 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('todo_lists', function (Blueprint $table) {
+        Schema::create('web_services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->json('token');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
@@ -18,6 +19,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('todo_lists');
+        Schema::dropIfExists('web_services');
     }
 };
