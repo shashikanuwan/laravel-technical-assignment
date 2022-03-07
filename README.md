@@ -6,6 +6,8 @@ This is a system that allows you to deposit and manage day-to-day task.
 
 ## Backend Usage
 
+Use PHP >= 8.0 for this application
+
 First clone this repository
 
     cd laravel-technical-assignment
